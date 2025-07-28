@@ -1,97 +1,68 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Aplikasi Front-End BUMDes 📱
 
-# Getting Started
+<p align="center">
+  <img style="margin-right: 8px;" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img style="margin-right: 8px;" src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Native"/>
+  <img style="margin-right: 8px;" src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm"/>
+  <img style="margin-right: 8px;" src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" alt="eslint"/>
+  <img style="margin-right: 8px;" src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7B93E" alt="prettier"/>
+</p>
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+**Deskripsi 📝**: bumdesappFE adalah repositori yang berisi kode front-end untuk aplikasi BUMDes (Badan Usaha Milik Desa). Aplikasi ini bertujuan untuk memudahkan pengelolaan dan transparansi operasional BUMDes. Dengan antarmuka yang intuitif dan responsif, aplikasi ini dirancang untuk memberikan pengalaman pengguna yang optimal bagi pengelola dan masyarakat desa.
 
-## Step 1: Start Metro
+**Fitur Utama ✨**:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+*   **📱 Antarmuka Pengguna yang Intuitif:** Desain yang mudah dipahami dan digunakan oleh berbagai kalangan.
+*   **📊 Visualisasi Data:** Menampilkan data BUMDes dalam bentuk grafik dan laporan yang mudah dibaca.
+*   **🛡️ Keamanan Terjamin:** Implementasi praktik keamanan terbaik untuk melindungi data sensitif.
+*   **⚡️ Performa Optimal:** Aplikasi berjalan dengan cepat dan responsif.
+*   **🌍 Multiplatform:** Kompatibel dengan berbagai perangkat (Android, iOS, Web - *Potensial untuk pengembangan ke depan*).
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+**Tech Stack 🛠️**:
 
-```sh
-# Using npm
-npm start
+*   **Bahasa Pemrograman:** JavaScript
+*   **Framework:** React Native *(Berdasarkan adanya direktori `android` dan file `.tsx`)*
+*   **Linting:** ESLint
+*   **Formatter:** Prettier
+*   **Package Manager:** npm *(Kemungkinan besar, berdasarkan struktur file)*
+*   **Testing:** Jest *(Berdasarkan adanya direktori `__tests__`)*
 
-# OR using Yarn
-yarn start
-```
+**Instalasi & Menjalankan 🚀**:
 
-## Step 2: Build and run your app
+1.  Clone repositori:
+    ```bash
+    git clone https://github.com/zulkar30/bumdesappFE
+    ```
+2.  Masuk ke direktori:
+    ```bash
+    cd bumdesappFE
+    ```
+3.  Install dependensi:
+    ```bash
+    npm install
+    ```
+4.  Jalankan proyek (untuk Android):
+    ```bash
+    npm run android
+    ```
+    Atau (untuk iOS):
+    ```bash
+    npm run ios
+    ```
+    *Catatan: Pastikan Anda telah menginstal dan mengkonfigurasi environment React Native dengan benar.*
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+**Cara Berkontribusi 🤝**:
 
-### Android
+1.  Fork repositori ini.
+2.  Buat branch untuk fitur baru Anda (`git checkout -b feature/FiturBaru`).
+3.  Commit perubahan Anda (`git commit -m 'Menambahkan fitur baru'`).
+4.  Push ke branch Anda (`git push origin feature/FiturBaru`).
+5.  Buat Pull Request.
 
-```sh
-# Using npm
-npm run android
+**Lisensi 📄**:
 
-# OR using Yarn
-yarn android
-```
+Tidak ada lisensi yang ditentukan.
 
-### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+README.md ini dihasilkan secara otomatis oleh [README.MD Generator](https://github.com/emRival) — dibuat dengan ❤️ oleh [emRival](https://github.com/emRival)
