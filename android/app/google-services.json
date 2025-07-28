@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "781979084728",
+    "project_id": "cmrn-695cf",
+    "storage_bucket": "cmrn-695cf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781979084728:android:a830f6412cd921d43bd14d",
+        "android_client_info": {
+          "package_name": "com.bolehjoki.bumdesapprn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUkhl12MrjPhaqGMvYP4jACJU0XDmZFKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
