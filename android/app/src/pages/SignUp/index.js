@@ -96,6 +96,7 @@ const SignUp = ({navigation}) => {
             value={form.password}
             onChangeText={value => setForm('password', value)}
             secureTextEntry
+            inputStyle={{ color: '#020202' }}
           />
           <Gap height={24} />
           <Button text="Lanjutkan" onPress={onSubmit} />

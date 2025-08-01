@@ -24,12 +24,13 @@ const SignUpAddress = ({ navigation }) => {
     // Ambil data kota dari server
     axios.get(`${BASE_URL}/api/cities`)
       .then(res => {
+        console.log(res.data.data);
         setCities(res.data.data); // pastikan response berbentuk array kota
       })
       .catch(err => {
         console.error('Gagal mengambil data kota:', err);
       });
-  }, []);
+  }, [dispatch]);
 
   const onSubmit = () => {
     const data = {
@@ -73,12 +74,15 @@ const SignUpAddress = ({ navigation }) => {
           <Gap height={16} />
           <Select
             label="Kota"
-            value={form.city_id}
+            value={form.city_id?.toString()} // konversi ke string
             items={cities.map(city => ({
               label: city.name,
-              value: city.id,
+              value: city.id.toString(), // konversi ke string
             }))}
-            onSelectChange={value => setForm('city_id', value)}
+            onSelectChange={value => {
+              console.log('City ID terpilih:', value);
+              setForm('city_id', value); // simpan sebagai string
+            }}
           />
           <Gap height={24} />
           <Button text="Daftar Sekarang" onPress={onSubmit} />

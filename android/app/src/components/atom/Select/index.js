@@ -2,19 +2,19 @@ import React from 'react';
 import {Picker} from '@react-native-picker/picker';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Select = ({label, value, onSelectChange}) => {
+const Select = ({label, value, onSelectChange, items = []}) => {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
       <View style={styles.input}>
         <Picker
           selectedValue={value}
-          onValueChange={itemValue => onSelectChange(itemValue)}>
-          <Picker.Item label="Bengkalis" value="Bengkalis" />
-          <Picker.Item label="Dumai" value="Dumai" />
-          <Picker.Item label="Duri" value="Duri" />
-          <Picker.Item label="Pekanbaru" value="Pekanbaru" />
-          <Picker.Item label="Selatpanjang" value="Selatpanjang" />
+          onValueChange={itemValue => onSelectChange(itemValue)}
+          style={styles.picker}>
+          <Picker.Item label="Pilih Kota" value="" /> {/* Optional default */}
+          {items.map(item => (
+            <Picker.Item key={item.value} label={item.label} value={item.value} />
+          ))}
         </Picker>
       </View>
     </View>
@@ -36,4 +36,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     paddingVertical: 0,
   },
+  picker: {
+  color: '#020202', // warna teks hitam
+  backgroundColor: '#fff', // latar putih
+},
 });

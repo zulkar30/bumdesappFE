@@ -9,6 +9,12 @@ const Profile = () => {
   useEffect(() => {
     getData('userProfile').then(res => {
       setUserProfile(res);
+
+      const imageUrl = res.picturePath
+        ? `${BASE_URL}/storage/${res.picturePath}`
+        : `https://ui-avatars.com/api/?name=${encodeURIComponent(res.name)}&color=FFFFFF&background=000000`;
+
+      console.log('📸 URL Foto Profil:', res);
     });
   }, []);
   return (
@@ -21,8 +27,8 @@ const Profile = () => {
                 uri: userProfile.picturePath
                   ? `${BASE_URL}/storage/${userProfile.picturePath}`
                   : `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                      userProfile.name,
-                    )}&color=FFFFFF&background=000000`,
+                    userProfile.name,
+                  )}&color=FFFFFF&background=000000`,
               }}
               style={styles.photoContainer}
             />
@@ -41,8 +47,8 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-  page: {flex: 1},
-  profile: {backgroundColor: '#03987A', paddingBottom: 26},
+  page: { flex: 1 },
+  profile: { backgroundColor: '#03987A', paddingBottom: 26 },
   photo: {
     alignItems: 'center',
     marginTop: 26,

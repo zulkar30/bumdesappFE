@@ -50,7 +50,9 @@ export const signUpAction =
               },
             },
           );
-          profile.profile_photo_url = `${BASE_URL}/storage/${resUpload.data.data[0]}`;
+          const uploadedPath = resUpload.data.data[0];
+          profile.profile_photo_url = `${BASE_URL}/storage/${uploadedPath}`;
+          profile.picturePath = uploadedPath;
         } catch (err) {
           showMessage('Upload foto gagal');
         }
@@ -65,9 +67,21 @@ export const signUpAction =
       dispatch(setLoading(false));
     } catch (err) {
       dispatch(setLoading(false));
-      showMessage(
-        err?.response?.data?.data?.message || 'Terjadi kesalahan, coba lagi.',
-      );
+      const fallbackMessage = 'Terjadi kesalahan, coba lagi.';
+      const errorMessage =
+        err?.response?.data?.data?.message || // Laravel-style error message
+        err?.response?.data?.message ||       // Beberapa API pakai struktur ini
+        err?.message ||                       // Error dari axios atau JS
+        fallbackMessage;
+      console.log('Error Default', fallbackMessage);
+      console.log('Error Laravel', err?.response?.data?.data?.message || 'Tak Tau');
+      console.log('Error API', err?.response?.data?.message || 'Tak Tau');
+      console.log('Error JS', err?.message || 'Tak Tau');
+      showMessage({
+        message: 'Register Gagal',
+        description: errorMessage,
+        type: 'danger',
+      });
     }
   };
 
