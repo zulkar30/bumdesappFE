@@ -7,6 +7,7 @@ const initHome = {
   produkTenun: [],
   produkTanjak: [],
   produkAksesoris: [],
+  searchResults: [],
 };
 
 export const homeReducer = (state = initHome, action) => {
@@ -56,6 +57,12 @@ export const homeReducer = (state = initHome, action) => {
     return {
       ...state,
       produkAksesoris: action.value,
+    };
+  }
+  if (action.type === 'SET_SEARCH_RESULTS') {
+    return {
+      ...state,
+      searchResults: action.value,
     };
   }
   return state;

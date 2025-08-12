@@ -17,6 +17,7 @@ const HomeProfile = () => {
     <View style={styles.profileContainer}>
       <View>
         <Text style={styles.appName}>BUMDES</Text>
+        <Text style={styles.cityName}>LANGGAM SAKO TELUK LATAK</Text>
         <Text style={styles.desc}>Temukan produk kebutuhan Anda</Text>
       </View>
       <TouchableOpacity
@@ -51,6 +52,11 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 22,
+    fontFamily: 'Poppins-Medium',
+    color: '#020202',
+  },
+  cityName: {
+    fontSize: 14,
     fontFamily: 'Poppins-Medium',
     color: '#020202',
   },

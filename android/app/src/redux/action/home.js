@@ -47,3 +47,14 @@ export const getProductByCategories = categories => dispatch => {
     })
     .catch(err => {});
 };
+
+export const searchProducts = (query) => async dispatch => {
+  try {
+    const res = await axios.get(`${BASE_URL}/api/product`, {
+      params: { name: query }
+    });
+    dispatch({ type: 'SET_SEARCH_RESULTS', value: res.data.data });
+  } catch (err) {
+    console.log('Search error: ', err);
+  }
+};
