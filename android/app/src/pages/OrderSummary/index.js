@@ -17,6 +17,25 @@ const OrderSummary = ({ navigation, route }) => {
   const { item, transaction, userProfile } = route.params;
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [paymentUrl, setPaymentUrl] = useState('https://google.com');
+  const [shippingFee, setShippingFee] = useState(0);
+
+  useEffect(() => {
+    const fetchShippingPrice = async () => {
+      try {
+        const token = await getData('token');
+        const res = await axios.get(`${BASE_URL}/api/shipping-price`, {
+          headers: { Authorization: token.value },
+        });
+        setShippingFee(Number(res.data.driver_price || 0));
+        console.log('ONGKIR:', res);
+      } catch (err) {
+        console.error('Gagal ambil ongkir:', err);
+      }
+    };
+
+    fetchShippingPrice();
+  }, []);
+
 
   const onCheckout = () => {
     const data = {
@@ -91,10 +110,10 @@ const OrderSummary = ({ navigation, route }) => {
           value={transaction.totalPrice}
           type="currency"
         />
-        <ItemValue label="Ongkir" value={transaction.driver} type="currency" />
+        <ItemValue label="Ongkir" value={shippingFee} type="currency" />
         <ItemValue
           label="Total Harga"
-          value={transaction.total}
+          value={transaction.totalPrice + shippingFee}
           type="currency"
           valueColor="#1ABC9C"
         />

@@ -10,8 +10,11 @@ const HomeProfile = () => {
   useEffect(() => {
     getData('userProfile').then(res => {
       setUserProfile(res);
+  console.log('foto', res)
+
     });
   }, []);
+
 
   return (
     <View style={styles.profileContainer}>

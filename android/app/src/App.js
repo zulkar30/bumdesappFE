@@ -6,7 +6,10 @@ import {Loading} from './components';
 import store from './redux/store';
 import Router from './router';
 import messaging from '@react-native-firebase/messaging';
-import {Alert} from 'react-native';
+import {Alert, Linking} from 'react-native';
+import {SuccessSignUp} from './pages';
+import {navigationRef, navigate} from './navigationRef';
+import {BASE_URL} from './config';
 
 const AppUtama = () => {
   const {isLoading} = useSelector(state => state.globalReducer);
@@ -28,7 +31,7 @@ const AppUtama = () => {
         console.log('Notifikasi ditekan di background:', remoteMessage);
 
         if (remoteMessage.data && remoteMessage.data.order_id) {
-          navigation.navigate('OrderDetail', {
+          navigationRef.navigate('OrderDetail', {
             orderId: remoteMessage.data.order_id,
           });
         }
@@ -44,7 +47,7 @@ const AppUtama = () => {
           remoteMessage.data.order_id
         ) {
           console.log('Notifikasi ditekan dari terminated:', remoteMessage);
-          navigation.navigate('OrderDetail', {
+          navigationRef.navigate('OrderDetail', {
             orderId: remoteMessage.data.order_id,
           });
         }
@@ -56,8 +59,44 @@ const AppUtama = () => {
     };
   }, []);
 
+  React.useEffect(() => {
+    // listener deep link
+    const handleDeepLink = event => {
+      const url = event.url;
+      console.log('Deep link diterima:', url);
+
+      if (url.includes('/email/verify/')) {
+        // arahkan ke SuccessSignUp
+        navigationRef.navigate('SuccessSignUp');
+      }
+    };
+
+    // saat app sudah running, listen link yang masuk
+    const subscription = Linking.addEventListener('url', handleDeepLink);
+
+    // kalau app dibuka dari terminated state
+    Linking.getInitialURL().then(url => {
+      if (url && url.includes('/email/verify/')) {
+        navigationRef.navigate('SuccessSignUp');
+      }
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
+  const linking = {
+    prefixes: ['myapp://', `${BASE_URL}`],
+    config: {
+      screens: {
+        SuccessSignUp: 'email/verify/:id/:hash',
+      },
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef} linking={linking}>
       <Router />
       <FlashMessage
         position="top"

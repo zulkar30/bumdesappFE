@@ -19,7 +19,7 @@ const SignUp = ({navigation}) => {
     password: '',
   });
 
-  const [photo, setPhoto] = useState('');
+  // const [photo, setPhoto] = useState('');
   const dispatch = useDispatch();
 
   const onSubmit = () => {
@@ -27,31 +27,31 @@ const SignUp = ({navigation}) => {
     navigation.navigate('SignUpAddress');
   };
 
-  const addPhoto = () => {
-    launchImageLibrary(
-      {
-        quality: 0.5,
-        maxWidth: 200,
-        maxHeight: 200,
-      },
-      response => {
-        if (response.didCancel || response.error) {
-          showMessage('Anda belum memilih foto');
-        } else if (response.assets && response.assets.length > 0) {
-          const resPhoto = response.assets[0];
-          const source = {uri: resPhoto.uri};
-          const dataImage = {
-            uri: resPhoto.uri,
-            type: resPhoto.type,
-            name: resPhoto.fileName,
-          };
-          setPhoto(source);
-          dispatch({type: 'SET_PHOTO', value: dataImage});
-          dispatch({type: 'SET_UPLOAD_STATUS', value: true});
-        }
-      },
-    );
-  };
+  // const addPhoto = () => {
+  //   launchImageLibrary(
+  //     {
+  //       quality: 0.5,
+  //       maxWidth: 200,
+  //       maxHeight: 200,
+  //     },
+  //     response => {
+  //       if (response.didCancel || response.error) {
+  //         showMessage('Anda belum memilih foto');
+  //       } else if (response.assets && response.assets.length > 0) {
+  //         const resPhoto = response.assets[0];
+  //         const source = {uri: resPhoto.uri};
+  //         const dataImage = {
+  //           uri: resPhoto.uri,
+  //           type: resPhoto.type,
+  //           name: resPhoto.fileName,
+  //         };
+  //         setPhoto(source);
+  //         dispatch({type: 'SET_PHOTO', value: dataImage});
+  //         dispatch({type: 'SET_UPLOAD_STATUS', value: true});
+  //       }
+  //     },
+  //   );
+  // };
 
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
@@ -62,7 +62,7 @@ const SignUp = ({navigation}) => {
           onBack={() => navigation.goBack()}
         />
         <View style={styles.container}>
-          <TouchableOpacity onPress={addPhoto}>
+          {/* <TouchableOpacity onPress={addPhoto}>
             <View style={styles.photo}>
               <View style={styles.borderPhoto}>
                 {photo ? (
@@ -74,7 +74,7 @@ const SignUp = ({navigation}) => {
                 )}
               </View>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <TextInput
             label="Nama Lengkap"

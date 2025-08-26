@@ -17,6 +17,7 @@ import {
   SplashScreen,
   SuccessOrder,
   SuccessSignUp,
+  EmailVerify
 } from '../pages';
 
 const Stack = createNativeStackNavigator();
@@ -98,6 +99,11 @@ const Router = () => {
       <Stack.Screen
         name="OrderDetail"
         component={OrderDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EmailVerify"
+        component={EmailVerify}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -18,7 +18,7 @@ const SignUpAddress = ({ navigation }) => {
   const [cities, setCities] = useState([]);
   const dispatch = useDispatch();
   const registerReducer = useSelector(state => state.registerReducer);
-  const photoReducer = useSelector(state => state.photoReducer);
+  // const photoReducer = useSelector(state => state.photoReducer);
 
   useEffect(() => {
     // Ambil data kota dari server
@@ -39,7 +39,7 @@ const SignUpAddress = ({ navigation }) => {
     };
     dispatch(setLoading(true));
     // API Register
-    dispatch(signUpAction(data, photoReducer, navigation));
+    dispatch(signUpAction(data, navigation));
   };
 
   return (

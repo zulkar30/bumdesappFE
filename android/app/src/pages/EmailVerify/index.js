@@ -3,29 +3,23 @@ import {StyleSheet, Text, View} from 'react-native';
 import {LogoSuccessSignUp} from '../../assets';
 import {Button, Gap} from '../../components';
 
-const SuccessSignUp = ({navigation}) => {
+const EmailVerify = ({navigation}) => {
   return (
     <View style={styles.page}>
       <LogoSuccessSignUp />
       <Gap height={30} />
-      <Text style={styles.title}>SELAMAT!</Text>
+      <Text style={styles.title}>VERIFIKASI EMAIL</Text>
       <Gap height={6} />
-      <Text style={styles.subTitle}>Akun Anda berhasil di verifikasi!</Text>
-      <Text style={styles.subTitle}>Selamat berbelanja</Text>
+      <Text style={styles.subTitle}>Berhasil Daftar</Text>
+      <Text style={styles.subTitle}>
+        Silakan cek Gmail Anda dan untuk verifikasi
+      </Text>
       <Gap height={30} />
-      <View style={styles.buttonContainer}>
-        <Button
-          text="Mulai Belanja"
-          onPress={() =>
-            navigation.reset({index: 0, routes: [{name: 'AppUtama'}]})
-          }
-        />
-      </View>
     </View>
   );
 };
 
-export default SuccessSignUp;
+export default EmailVerify;
 
 const styles = StyleSheet.create({
   page: {

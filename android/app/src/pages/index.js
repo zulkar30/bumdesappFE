@@ -12,6 +12,7 @@ import SuccessOrder from './SuccessOrder';
 import OrderDetail from './OrderDetail';
 import Product from './Product';
 import Cart from './Cart'
+import EmailVerify from './EmailVerify'
 
 export {
   SplashScreen,
@@ -27,5 +28,6 @@ export {
   SuccessOrder,
   OrderDetail,
   Product,
-  Cart
+  Cart,
+  EmailVerify
 };

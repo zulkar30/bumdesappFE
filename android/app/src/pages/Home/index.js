@@ -72,7 +72,15 @@ const Home = ({ navigation }) => {
                     rating={item.rate}
                     image={{ uri: item.picturePath }}
                     onPress={() =>
-                      navigation.navigate('ProductDetail', { id: item.id })
+                      navigation.navigate('ProductDetail', {
+                        id: item.id,
+                        name: item.name,
+                        description: item.description,
+                        picturePath: item.picturePath,
+                        price: item.price,
+                        rate: item.rate,
+                        stock: item.stock,
+                      })
                     }
                   />
                 </View>
